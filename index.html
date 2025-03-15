@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="mx-auto bg-white text-black">
     <nav class="bg-gray-200 flex justify-between items-center p-4 px-8">
@@ -25,5 +26,26 @@
             </button>
         </div>
     </nav>
+
+    <!-- hero section  -->
+
+    <section class="container mx-auto px-8 py-20 flex items-center justify-between">
+        <div class="max-w-lg">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">
+                <span class="text-blue-500">English</span> is Easy!!
+            </h1>
+            <p class="text-lg text-gray-700 mb-8">
+                আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+            </p>
+            <form action="#" class="space-y-4">
+                <input type="text" placeholder="Enter Your Name" class="w-full border border-gray-300 rounded-md px-4 py-2">
+                <input type="password" placeholder="••••••••••" class="w-full border border-gray-300 rounded-md px-4 py-2">
+                <button type="submit" class="bg-blue-600  px-6 py-2 rounded-md text-white font-bold">Get Started</button>
+            </form>
+        </div>
+        <div class="relative">
+            <img src="assets/hero-student.png" alt="Student Image" class="w-[350px]">
+        </div>
+    </section>
 </body>
 </html>
