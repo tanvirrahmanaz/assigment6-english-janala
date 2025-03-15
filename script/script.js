@@ -1,3 +1,5 @@
+// lesson section 
+
 const lessonsContainer = document.getElementById('lessons-container');
   const lessonText = document.getElementById('lesson-text');
 
@@ -23,3 +25,25 @@ const lessonsContainer = document.getElementById('lessons-container');
 
   // Initialize with default text
   document.addEventListener('DOMContentLoaded', fetchLessons);
+
+
+
+
+
+
+
+// frequently ask qeustion 
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(icon => icon.textContent = '+');
+
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        button.querySelector('.faq-icon').textContent = '-';
+      }
+    });
+  });
