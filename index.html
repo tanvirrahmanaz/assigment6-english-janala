@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" data-theme="light"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    
+<body class="mx-auto bg-white text-black">
+    <nav class="bg-gray-200 flex justify-between items-center p-4 px-8">
+        <h1 id="site-title" class="text-black  font-bold flex items-center">
+            English <img src="assets/logo.png" alt="Logo" class="h-6 w-6 mr-2">জানালা
+        </h1>
+        <div class="flex space-x-4">
+            <button id="faq-button" class="btn btn-outline btn-primary flex items-center">
+                <img src="assets/fa-circle-question.png" alt="FAQ" class="h-5 w-5 mr-1"> FAQ
+            </button>
+            <button id="learn-button" class="btn btn-outline btn-primary flex items-center">
+                <img src="assets/fa-book-open.png" alt="Learn" class="h-5 w-5 mr-1"> Learn
+            </button>
+            <button id="logout-button" class="btn btn-outline btn-primary flex items-center">
+                <img src="assets/fa-arrow-right-from-bracket.png" alt="Logout" class="h-5 w-5 mr-1"> Logout
+            </button>
+        </div>
+    </nav>
 </body>
 </html>
