@@ -1,4 +1,3 @@
-// ✅ Full script.js (Bracket Fixed Version - No Error in VS Code)
 
 const lessonsContainer = document.getElementById('lessons-container');
 const lessonDetails = document.getElementById('lesson-details');
@@ -22,11 +21,16 @@ async function fetchLessons() {
 
   data.forEach(lesson => {
     const button = document.createElement('button');
-    button.className = 'inline-flex items-center px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition';
+    button.className = 'inline-flex items-center px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition duration-300 font-semibold';
     button.innerHTML = `<img src="assets/fa-book-open.png" class="h-5 w-5 mr-1"> Lesson-${lesson.level_no}`;
     button.addEventListener('click', () => {
-      if (activeBtn) activeBtn.classList.remove('bg-blue-600', 'text-white');
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-blue-600', 'text-white');
+        activeBtn.classList.add('text-blue-600'); // fallback color
+      }
+    
       button.classList.add('bg-blue-600', 'text-white');
+      button.classList.remove('text-blue-600'); // remove old color if present
       activeBtn = button;
       loadLessonWords(lesson.level_no);
     });
@@ -48,8 +52,9 @@ async function loadLessonWords(levelNo) {
     if (!data || data.length === 0) {
       lessonDetails.innerHTML = `
         <div class="text-center py-16">
-          <img src="assets/alert-icon.png" class="mx-auto mb-4 w-10">
-          <p class="text-2xl font-bold text-gray-600">দুঃখিত! Lesson এ শব্দ নেই</p>
+          <img src="assets/alert-error.png" class="mx-auto mb-4 w-10">
+          <p class=" text-gray-600">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+          <p class="text-2xl font-bold text-gray-600">নেক্সট Lesson এ যান</p>
         </div>`;
       return;
     }
