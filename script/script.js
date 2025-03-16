@@ -71,7 +71,7 @@ async function loadLessonWords(levelNo) {
         <p class="text-lg">${word.meaning || 'N/A'} / ${word.pronunciation || 'N/A'}</p>
         <div class=\"flex justify-between mt-4\">
   <button onclick=\"showDetails(${word.id})\" class=\"bg-blue-100 p-2 rounded-md text-blue-800\"><i class=\"fa-solid fa-circle-info\"></i></button>
-  <button onclick=\"playAudio('${word.word}')\" class=\"bg-blue-100 p-2 rounded-md text-blue-800\"><i class=\"fa-solid fa-volume-low\"></i></button>
+  <button onclick=\"playAudio('${word.word}')\" class=\"bg-blue-1 00 p-2 rounded-md text-blue-800\"><i class=\"fa-solid fa-volume-low\"></i></button>
 </div>`;
       cards.appendChild(card);
     });
@@ -92,15 +92,33 @@ async function showDetails(id) {
   const modal = document.createElement('div');
   modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
   modal.innerHTML = `
-    <div class="bg-white p-6 rounded-lg max-w-md w-full text-left">
-      <h3 class="text-2xl font-bold mb-2">${data.word} (${data.pronunciation || 'N/A'})</h3>
-      <p class="mb-2"><strong>Meaning:</strong> ${data.meaning}</p>
-      <p class="mb-2"><strong>Example:</strong> ${data.sentence || 'N/A'}</p>
-      <p class="mb-2"><strong>Synonyms:</strong> ${(data.synonyms || []).join(', ')}</p>
-      <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md" onclick="this.closest('.fixed').remove()">Complete Learning</button>
+    <div class="bg-white p-6 rounded-2xl max-w-md w-full text-left shadow-lg border border-blue-200">
+      <h3 class="text-2xl font-bold mb-2">
+        ${data.word} <span class="text-gray-500 text-lg font-normal">(${data.pronunciation || 'N/A'})</span>
+      </h3>
+      <div class="mb-3">
+        <p class="font-semibold mb-1">Meaning</p>
+        <p class="text-gray-700">${data.meaning || 'N/A'}</p>
+      </div>
+      <div class="mb-3">
+        <p class="font-semibold mb-1">Example</p>
+        <p class="text-gray-700">${data.sentence || 'N/A'}</p>
+      </div>
+      <div class="mb-4">
+        <p class="font-semibold mb-2">সমার্থক শব্দ গুলো</p>
+        <div class="flex flex-wrap gap-2">
+          ${(data.synonyms || [])
+            .map(syn => `<span class="px-3 py-1 bg-gray-100 rounded-md text-sm font-medium text-gray-700">${syn}</span>`)
+            .join('')}
+        </div>
+      </div>
+      <div class="text-left mt-6">
+        <button class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300" onclick="this.closest('.fixed').remove()">Complete Learning</button>
+      </div>
     </div>`;
   document.body.appendChild(modal);
 }
+
 
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
