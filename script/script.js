@@ -66,9 +66,9 @@ async function loadLessonWords(levelNo) {
       const card = document.createElement('div');
       card.className = 'border border-blue-300 p-4 rounded-lg shadow-sm';
       card.innerHTML = `
-        <h3 class="text-xl font-bold">${word.word || 'N/A'}</h3>
+        <h3 class="text-xl font-bold">${word.word || 'দুঃখিত খুঁজে পাওয়া যাচ্ছে না'}</h3>
         <p class="text-sm text-gray-600">Meaning /Pronunciation</p>
-        <p class="text-lg">${word.meaning || 'N/A'} / ${word.pronunciation || 'N/A'}</p>
+        <p class="text-lg">${word.meaning || 'দুঃখিত খুঁজে পাওয়া যাচ্ছে না'} / ${word.pronunciation || 'দুঃখিত খুঁজে পাওয়া যাচ্ছে না'}</p>
         <div class=\"flex justify-between mt-4\">
   <button onclick=\"showDetails(${word.id})\" class=\"bg-blue-100 p-2 rounded-md text-blue-800\"><i class=\"fa-solid fa-circle-info\"></i></button>
   <button onclick=\"playAudio('${word.word}')\" class=\"bg-blue-1 00 p-2 rounded-md text-blue-800\"><i class=\"fa-solid fa-volume-low\"></i></button>
@@ -94,15 +94,15 @@ async function showDetails(id) {
   modal.innerHTML = `
     <div class="bg-white p-6 rounded-2xl max-w-md w-full text-left shadow-lg border border-blue-200">
       <h3 class="text-2xl font-bold mb-2">
-        ${data.word} <span class="text-gray-500 text-lg font-normal">(${data.pronunciation || 'N/A'})</span>
+        ${data.word} <span class="text-gray-500 text-lg font-normal">(${data.pronunciation || 'দুঃখিত খুঁজে পাওয়া যাচ্ছে না'})</span>
       </h3>
       <div class="mb-3">
         <p class="font-semibold mb-1">Meaning</p>
-        <p class="text-gray-700">${data.meaning || 'N/A'}</p>
+        <p class="text-gray-700">${data.meaning || 'দুঃখিত খুঁজে পাওয়া যাচ্ছে না'}</p>
       </div>
       <div class="mb-3">
         <p class="font-semibold mb-1">Example</p>
-        <p class="text-gray-700">${data.sentence || 'N/A'}</p>
+        <p class="text-gray-700">${data.sentence || 'দুঃখিত খুঁজে পাওয়া যাচ্ছে না'}</p>
       </div>
       <div class="mb-4">
         <p class="font-semibold mb-2">সমার্থক শব্দ গুলো</p>
